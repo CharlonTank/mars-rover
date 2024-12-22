@@ -1,0 +1,4 @@
+[submodule "elm-script"]
+	path = elm-script
+	url = https://github.com/ianmackenzie/elm-script.git
+	branch = main
