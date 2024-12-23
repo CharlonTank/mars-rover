@@ -28,17 +28,24 @@ If a robot tries to leave the grid, it becomes LOST.
 
 ## Setup
 
-1. **Install Deno**:
+1. **Clone the repository with submodules:**
+   ```bash
+   git clone --recurse-submodules https://github.com/CharlonTank/mars-rover.git
+   # Or if you already cloned it:
+   git submodule update --init --recursive
+   ```
+
+2. **Install Deno**:
    ```bash
    brew install deno
    ```
 
-2. **Install Elm Script:**
+3. **Install Elm Script:**
    ```bash
    deno install -g -f -A -n elm-script https://elm-script.github.io/latest
    ```
 
-3. **Add elm-script to your PATH:**
+4. **Add elm-script to your PATH:**
    ```bash
    # For zsh:
    echo 'export PATH="$HOME/.deno/bin:$PATH"' >> ~/.zshrc
@@ -47,7 +54,7 @@ If a robot tries to leave the grid, it becomes LOST.
    fish_add_path "$HOME/.deno/bin"
    ```
 
-4. **Install elm-test-rs**:
+5. **Install elm-test-rs**:
    ```bash
    npm install -g elm-test-rs
    ```
