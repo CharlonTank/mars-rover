@@ -12,7 +12,7 @@ readLine : UserPrivileges -> Directory Permissions.Writable -> Script String Str
 readLine userPrivileges workingDirectory =
     Script.executeWith userPrivileges
         { command = "sh"
-        , arguments = ["-c", "read line && echo \"$line\""]
+        , arguments = [ "-c", "read line && echo \"$line\"" ]
         , workingDirectory = workingDirectory
         }
         |> Script.map String.trim
@@ -26,8 +26,10 @@ readInput userPrivileges workingDirectory lines =
                 if String.isEmpty line then
                     if List.isEmpty lines then
                         Script.printLine "Please provide grid size and robot instructions"
+
                     else
                         processInput (String.join "\n" (List.reverse lines))
+
                 else
                     readInput userPrivileges workingDirectory (line :: lines)
             )
@@ -39,7 +41,7 @@ script { arguments, userPrivileges, workingDirectory } =
         [] ->
             readInput userPrivileges workingDirectory []
 
-        [input] ->
+        [ input ] ->
             processInput input
 
         gridSizeStr :: robotInputs ->

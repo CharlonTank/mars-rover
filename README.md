@@ -37,7 +37,11 @@ If a robot tries to leave the grid, it becomes LOST.
 
 2. **Install Deno**:
    ```bash
+   # Using Homebrew (macOS)
    brew install deno
+   
+   # Using curl
+   curl -fsSL https://deno.land/install.sh | sh
    ```
 
 3. **Install Elm Script:**

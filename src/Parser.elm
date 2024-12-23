@@ -102,6 +102,7 @@ parseInitialPosition : String -> Result String Position
 parseInitialPosition input =
     if not (String.startsWith "(" input && String.contains ")" input) then
         Err "Invalid position format. Expected: x, y, D where x and y are integers and D is N, E, S, or W"
+
     else
         let
             cleanInput =
@@ -149,12 +150,14 @@ parseRobotInput input =
                         in
                         if String.isEmpty trimmedCmd then
                             Err ("Invalid robot input format: " ++ input ++ ". Expected format: (x, y, D) COMMANDS")
+
                         else
                             parseCommands trimmedCmd
                                 |> Result.andThen
                                     (\cmds ->
                                         if List.isEmpty cmds then
                                             Err ("No valid commands found in: " ++ input ++ ". Expected commands: F, L, or R")
+
                                         else
                                             Ok (Robot position cmds)
                                     )
